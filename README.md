@@ -14,9 +14,21 @@ A Swift utility that provides a timeout mechanism for asynchronous operations us
 2. Integrate the `AsyncTimeout` structure into your project.
 3. Use the static `withTimeout` function to wrap the async operation that you want to time out.
 
+### Swift Package Manager
+
+Add the following to your Package.swift dependencies:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/RayKitajima/AsyncTimeout.git", from: "1.0.0"),
+],
+```
+
 ### Example:
 
 ```swift
+import AsyncTimeout
+
 do {
     let result: YourReturnType = try await AsyncTimeout.withTimeout(seconds: 5) {
         return try await someAsyncFunc()
